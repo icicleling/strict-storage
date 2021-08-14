@@ -1,0 +1,27 @@
+{
+  "name": "strict-storage",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "rollup -c"
+  },
+  "keywords": [],
+  "author": "icicleling",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-typescript": "^7.15.0",
+    "@rollup/plugin-typescript": "^8.2.5",
+    "@types/jest": "^27.0.1",
+    "babel-jest": "^27.0.6",
+    "jest": "^27.0.6",
+    "jest-localstorage-mock": "^2.4.16",
+    "rollup": "^2.56.2",
+    "rollup-plugin-delete": "^2.0.0",
+    "tslib": "^2.3.1",
+    "typescript": "^4.3.5"
+  }
+}
