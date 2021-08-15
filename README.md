@@ -25,31 +25,30 @@ Api same as Storage
 import getStrictStorage from "strict-storage";
 
 interface LocalStorageType {
-  foo: string;
-  bar: number;
+  foo: number;
+  bar: string[];
+}
+
+interface SessionStorageType {
+  date: Date;
 }
 
 const strictLocalStorage = getStrictStorage<LocalStorageType>(localStorage);
-export { strictLocalStorage };
+const strictSessionStorage =
+  getStrictStorage<SessionStorageType>(sessionStorage);
 
-// other.ts
-import { strictLocalStorage } from "./storage.ts";
-strictLocalStorage.setItem("foo", "hey"); // success
-strictLocalStorage.setItem("foo", 123); // error
-strictLocalStorage.setItem("bar", "hey"); // error
-
-const value = strictLocalStorage.getItem("foo"); // value type is string or null
-const numValue: number = strictLocalStorage.getItem("foo"); // error
+export { strictLocalStorage, strictSessionStorage };
 ```
 
 ```typescript
-// storage.ts
-// session storage
-interface SessionStorageType {
-  name: string;
-}
-const strictSessionStorage = getStrictStorage<SessionStorageType>(localStorage);
-// same as strictLocalStorage
-// ...
-// ...
+// other.ts
+import { strictLocalStorage } from "./storage.ts";
+strictLocalStorage.setItem("foo", 123); // success
+strictLocalStorage.setItem("foo", "abc"); // error
+
+strictLocalStorage.setItem("bar", ["a"]); // success
+strictLocalStorage.setItem("bar", "a"); // error
+
+const value = strictLocalStorage.getItem("bar"); // value type is string[] or null
+const numValue: number = strictLocalStorage.getItem("bar"); // error
 ```
