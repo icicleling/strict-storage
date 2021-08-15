@@ -2,7 +2,6 @@ import getStrictStorage from "./index";
 
 beforeEach(() => {
   localStorage.clear();
-  sessionStorage.clear();
 });
 
 interface StorageType {
@@ -12,20 +11,18 @@ interface StorageType {
 }
 
 test("check the key of the returned object", () => {
-  const storage = getStrictStorage();
-  expect(storage).toHaveProperty("strictLocalStorage");
-  expect(storage).toHaveProperty("strictSessionStorage");
+  const strictLocalStorage = getStrictStorage<StorageType>(localStorage);
 
-  expect(storage.strictLocalStorage).toHaveProperty("setItem");
-  expect(storage.strictLocalStorage).toHaveProperty("getItem");
-  expect(storage.strictLocalStorage).toHaveProperty("removeItem");
-  expect(storage.strictLocalStorage).toHaveProperty("key");
-  expect(storage.strictLocalStorage).toHaveProperty("clear");
-  expect(storage.strictLocalStorage).toHaveProperty("length");
+  expect(strictLocalStorage).toHaveProperty("setItem");
+  expect(strictLocalStorage).toHaveProperty("getItem");
+  expect(strictLocalStorage).toHaveProperty("removeItem");
+  expect(strictLocalStorage).toHaveProperty("key");
+  expect(strictLocalStorage).toHaveProperty("clear");
+  expect(strictLocalStorage).toHaveProperty("length");
 });
 
 test("check setting and get storage", () => {
-  const { strictLocalStorage } = getStrictStorage<StorageType>();
+  const strictLocalStorage = getStrictStorage<StorageType>(localStorage);
 
   const fooValue = 123;
   const barValue = "hey";
@@ -43,7 +40,7 @@ test("check setting and get storage", () => {
 });
 
 test("check remove storage", () => {
-  const { strictLocalStorage } = getStrictStorage<StorageType>();
+  const strictLocalStorage = getStrictStorage<StorageType>(localStorage);
 
   strictLocalStorage.setItem("foo", 999);
 
@@ -57,7 +54,7 @@ test("check remove storage", () => {
 });
 
 test("check clear storage", () => {
-  const { strictLocalStorage } = getStrictStorage<StorageType>();
+  const strictLocalStorage = getStrictStorage<StorageType>(localStorage);
   strictLocalStorage.setItem("foo", 123);
   strictLocalStorage.setItem("bar", "one");
 
@@ -67,7 +64,7 @@ test("check clear storage", () => {
 });
 
 test("check key storage", () => {
-  const { strictLocalStorage } = getStrictStorage<StorageType>();
+  const strictLocalStorage = getStrictStorage<StorageType>(localStorage);
   strictLocalStorage.setItem("foo", 123);
   strictLocalStorage.setItem("baz", { x: true });
 
@@ -76,7 +73,7 @@ test("check key storage", () => {
 });
 
 test("check length storage", () => {
-  const { strictLocalStorage } = getStrictStorage<StorageType>();
+  const strictLocalStorage = getStrictStorage<StorageType>(localStorage);
   strictLocalStorage.setItem("foo", 999);
   strictLocalStorage.setItem("bar", "hi");
 
