@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "test:dev": "jest --watch",
     "build": "rollup -c"
   },
   "keywords": [],

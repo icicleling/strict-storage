@@ -18,12 +18,14 @@ const getStrictStorage = <T extends object>() => {
       storage.removeItem(field);
     },
     key(index: number) {
-      storage.key(index);
+      return storage.key(index);
     },
     clear() {
       storage.clear();
     },
-    length: storage.length,
+    get length() {
+      return storage.length;
+    },
   });
 
   return {
