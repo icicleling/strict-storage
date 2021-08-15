@@ -1,9 +1,12 @@
 {
   "name": "strict-storage",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.2.0",
+  "description": "Storage with strict type",
   "main": "./dist/lib/index.js",
   "module": "./dist/es/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "jest",
     "test:dev": "jest --watch",
