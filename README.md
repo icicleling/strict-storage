@@ -30,7 +30,7 @@ interface LocalStorageType {
 }
 
 interface SessionStorageType {
-  date: Date;
+  date: string;
 }
 
 const strictLocalStorage = getStrictStorage<LocalStorageType>(localStorage);
