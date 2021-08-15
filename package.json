@@ -2,13 +2,24 @@
   "name": "strict-storage",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
   "scripts": {
     "test": "jest",
+    "test:dev": "jest --watch",
     "build": "rollup -c"
   },
-  "keywords": [],
+  "keywords": [
+    "localStorage",
+    "sessionStorage",
+    "storage"
+  ],
   "author": "icicleling",
+  "homepage": "https://github.com/icicleling/strict-storage.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/icicleling/strict-storage"
+  },
   "license": "Apache-2.0",
   "devDependencies": {
     "@babel/core": "^7.15.0",
