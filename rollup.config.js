@@ -7,6 +7,7 @@ export default {
     {
       file: "dist/lib/index.js",
       format: "cjs",
+      exports: "default",
     },
     {
       file: "dist/es/index.js",
